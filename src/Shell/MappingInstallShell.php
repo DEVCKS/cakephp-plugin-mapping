@@ -154,6 +154,8 @@ class MappingInstallShell extends Shell
         
         class ".$entityTableLabel." extends Table
         {
+            use tMappingTable;
+
             /**
              * Initialize method
              *
@@ -166,6 +168,9 @@ class MappingInstallShell extends Shell
         
                 \$this->setTable('".$tableLabel."');
                 \$this->setPrimaryKey(['".$taxoIdLabel."', '".$entityIdLabel."']);
+
+                \$this->taxonomyIdLabel = '".$taxoIdLabel."';
+                \$this->entityIdLabel = '".$entityIdLabel."';
             }
         }";
     }
