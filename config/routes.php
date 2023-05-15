@@ -2,7 +2,7 @@
 use Cake\Routing\Route\DashedRoute;
 $routes->plugin(
     'Mapping',
-    ['path' => '/mapping'],
+    ['path' => '/'],
     function ($routes) {
         $routes->fallbacks(DashedRoute::class);
         $routes->get('/cpv', ['controller' => 'NormalizedTaxonomies', 'action' => 'indexCpv']);
