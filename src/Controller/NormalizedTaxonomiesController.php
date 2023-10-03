@@ -7,6 +7,19 @@ use Cake\Datasource\ConnectionManager;
 
 class NormalizedTaxonomiesController extends AppController
 {
+    public function getCpvs() {
+        $conn = ConnectionManager::get('normalized_mapping');
+        $repo = TableRegistry::getTableLocator()->get('Mapping.Cpvs', ['connection' => $conn]);
+        $result = $repo->getByIds([]);
+        return $result;
+    }
+
+    public function getNacres() {
+        $conn = ConnectionManager::get('normalized_mapping');
+        $repo = TableRegistry::getTableLocator()->get('Mapping.Nacres', ['connection' => $conn]);
+        $result = $repo->getByIds([]);
+        return $result;
+    }
     public function indexCpv()
     {
         $ids = $this->request->getQuery('ids');
