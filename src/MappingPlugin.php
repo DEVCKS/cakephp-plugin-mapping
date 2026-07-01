@@ -7,6 +7,6 @@ use Cake\Core\BasePlugin;
 /**
  * Plugin for Mapping
  */
-class Plugin extends BasePlugin
+class MappingPlugin extends BasePlugin
 {
 }

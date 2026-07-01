@@ -12,9 +12,9 @@ use Cake\ORM\Entity;
  */
 class Cpv extends Entity
 {
-    protected $_accessible = [];
+    protected array $_accessible = [];
 
-    protected $_hidden = [];
+    protected array $_hidden = [];
 
     /**
      * @return int

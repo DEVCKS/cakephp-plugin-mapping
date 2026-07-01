@@ -4,7 +4,7 @@ namespace Mapping;
 
 class MappingConfig 
 {
-    static public function getConfig(): array
+    public static function getConfig(): array
     {
         return include(dirname(dirname(dirname(dirname(__FILE__)))).'/config/plugins/mapping.php');
     }
