@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Command;
+namespace Mapping\Command;
 
 use Cake\Console\Arguments;
 use Cake\Console\ConsoleIo;
