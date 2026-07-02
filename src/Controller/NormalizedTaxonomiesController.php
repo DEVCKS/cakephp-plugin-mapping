@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Mapping\Controller;
 
@@ -7,6 +7,25 @@ use Cake\Datasource\ConnectionManager;
 
 class NormalizedTaxonomiesController extends AppController
 {
+    public function beforeFilter(\Cake\Event\EventInterface $event)
+    {
+        $this->Authorization->skipAuthorization(['getCpvs', 'getNacres', 'indexCpv', 'indexNaf', 'indexNacre']);
+    }
+    public function getCpvs()
+    {
+        $conn = ConnectionManager::get('normalized_mapping');
+        $repo = TableRegistry::getTableLocator()->get('Mapping.Cpvs', ['connection' => $conn]);
+        $result = $repo->getByIds([]);
+        return $result;
+    }
+
+    public function getNacres()
+    {
+        $conn = ConnectionManager::get('normalized_mapping');
+        $repo = TableRegistry::getTableLocator()->get('Mapping.Nacres', ['connection' => $conn]);
+        $result = $repo->getByIds([]);
+        return $result;
+    }
     public function indexCpv()
     {
         $ids = $this->request->getQuery('ids');
@@ -18,7 +37,7 @@ class NormalizedTaxonomiesController extends AppController
         $conn = ConnectionManager::get('normalized_mapping');
         $repo = TableRegistry::getTableLocator()->get('Mapping.Cpvs', ['connection' => $conn]);
         $result = $repo->getByIds($ids);
-        
+
         $this->setResponseInJson($result);
 
         return $this->response;
@@ -35,7 +54,7 @@ class NormalizedTaxonomiesController extends AppController
         $conn = ConnectionManager::get('normalized_mapping');
         $repo = TableRegistry::getTableLocator()->get('Mapping.Nafs', ['connection' => $conn]);
         $result = $repo->getByIds($ids);
-        
+
         $this->setResponseInJson($result);
 
         return $this->response;
@@ -52,7 +71,7 @@ class NormalizedTaxonomiesController extends AppController
         $conn = ConnectionManager::get('normalized_mapping');
         $repo = TableRegistry::getTableLocator()->get('Mapping.Nacres', ['connection' => $conn]);
         $result = $repo->getByIds($ids);
-        
+
         $this->setResponseInJson($result);
 
         return $this->response;
