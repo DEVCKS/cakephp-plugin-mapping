@@ -93,7 +93,7 @@ class MappingInstallCommand extends \App\Command\BaseCommand
          */
         class " . $entityLabel . " extends Entity
         {
-            protected \$_accessible = [
+            protected array \$_accessible = [
                 '" . $taxoIdLabel . "' => true,
                 '" . $entityIdLabel . "' => true,
             ];
